@@ -31,12 +31,27 @@ public class MostCommonProblems {
 		return new String(carr);
 	}
 	
+	/*Find LCM and HCF for the numbers*/
+	public static int findLCM(int n1, int n2) {
+		int max = n1 > n2 ? n1 : n2;
+		while(true) {
+			if((max%n1==0)&&(max%n2==0)) {
+				return max;
+			}
+			max++;
+		}
+	}
+	
 	public static void main(String[] args) {
+		int n1 = 2;
+		int n2 = 6;
+		System.out.println(findLCM(n1, n2));
 		
+		/*
 		String h = "code";
 		String h1 = "program to reverse a string";
 		System.out.println(reverseString(h1));
-		
+		*/
 		//int n =  12791562;
 		//System.out.println(addDigits(n));
 	}
