@@ -43,8 +43,8 @@ public class MostCommonProblems {
 	}
 	
 	public static void main(String[] args) {
-		int n1 = 2;
-		int n2 = 6;
+		int n1 = 5;
+		int n2 = 27;
 		System.out.println(findLCM(n1, n2));
 		
 		/*
