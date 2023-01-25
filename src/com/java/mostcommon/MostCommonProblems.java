@@ -42,11 +42,32 @@ public class MostCommonProblems {
 		}
 	}
 	
+	/*Find the HFC for the numbers*/
+	public static int findHCF(int n1, int n2) {
+		int max = n1 > n2 ? n1 : n2;
+		int hcf = 0;
+		if(n1 == n2) {
+			return n1;
+		}
+		for(int i=1; i<max; i++) {
+			if(n1%i==0 && n2%i==0) {
+				hcf = i;
+			}
+		}
+		return hcf;
+	}
+	
 	public static void main(String[] args) {
+		
+		int n1 = 15;
+		int n2 = 15;
+		System.out.println(findHCF(n1, n2));
+		
+		/*
 		int n1 = 5;
 		int n2 = 27;
 		System.out.println(findLCM(n1, n2));
-		
+		*/
 		/*
 		String h = "code";
 		String h1 = "program to reverse a string";
