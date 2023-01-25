@@ -44,6 +44,8 @@ public class MostCommonProblems {
 	
 	/*Find the HFC for the numbers*/
 	public static int findHCF(int n1, int n2) {
+		//6
+		//8
 		int max = n1 > n2 ? n1 : n2;
 		int hcf = 0;
 		if(n1 == n2) {
@@ -57,11 +59,38 @@ public class MostCommonProblems {
 		return hcf;
 	}
 	
+	/*HCF code Refactor
+	 * 
+	 * -> 	the above approach works, but if i look closely,
+	 * 		the HCF of two numbers will always either be equal to
+	 * 		or less than the smaller number.
+	 * -> 	so the above code can be re-factored, in which
+	 * 		i set a min variable to the SMALLER number, and i 
+	 * 		will keep testing if both the numbers are divisible by 
+	 * 		the min variable, if true i will return, if not
+	 * 		i will decrement the min.
+	 * 
+	 * */
+	public static int findHCFByMin(int n1, int n2) {
+		int min = n1 < n2 ? n1 : n2;
+		int hcf = 1;
+		while(true) {
+			if(n1%min==0 && n2%min==0) {
+				hcf = min;
+				break;
+			}
+			min--;
+		}
+		return hcf;
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		
-		int n1 = 15;
-		int n2 = 15;
-		System.out.println(findHCF(n1, n2));
+		int n1 = 1787355;
+		int n2 = 971830;
+		System.out.println(findHCFByMin(n1, n2));
 		
 		/*
 		int n1 = 5;
