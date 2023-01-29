@@ -104,13 +104,36 @@ public class MostCommonProblems {
 		return i;
 	}
 	
+	
+	/*Perfect Number*/
+	public static boolean isPerfect(int num) {
+		int[] divisors = new int[10];
+		int k=0;
+		for(int i=1; i<num; i++) {
+			if(num % i == 0) {
+				divisors[k] = i;
+				k++;
+			}
+		}
+		int sum = 0;
+		for(int i=0; i<divisors.length; i++) {
+			sum = sum + divisors[i];
+		}
+		return sum == num;
+	}
+	
 	public static void main(String[] args) {
 		
+		
+		System.out.println(isPerfect(6));
+		
+		/*
 		int num = 153;
 		double sum = requiredSum(num);
 		if(num == sum)
 			System.out.println("Armstrong Number");
 		else
 			System.out.println("Not An Armstrong Number");
+			*/
 	}
 }
