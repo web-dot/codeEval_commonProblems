@@ -84,25 +84,33 @@ public class MostCommonProblems {
 		return hcf;
 	}
 	
+	/*Armstrong Number*/
+	public static double requiredSum(int num) {
+		int i = countDigits(num);
+		double sum = 0;
+		while(num > 0) {
+			int digit = num % 10;
+			num = num / 10;
+			sum += Math.pow(digit, i);
+		}
+		return sum;
+	}
 	
+	public static int countDigits(int num) {
+		int i;
+		for(i=0; num > 0; i++) {
+			num = num/10;
+		}
+		return i;
+	}
 	
 	public static void main(String[] args) {
 		
-		int n1 = 1787355;
-		int n2 = 971830;
-		System.out.println(findHCFByMin(n1, n2));
-		
-		/*
-		int n1 = 5;
-		int n2 = 27;
-		System.out.println(findLCM(n1, n2));
-		*/
-		/*
-		String h = "code";
-		String h1 = "program to reverse a string";
-		System.out.println(reverseString(h1));
-		*/
-		//int n =  12791562;
-		//System.out.println(addDigits(n));
+		int num = 153;
+		double sum = requiredSum(num);
+		if(num == sum)
+			System.out.println("Armstrong Number");
+		else
+			System.out.println("Not An Armstrong Number");
 	}
 }
