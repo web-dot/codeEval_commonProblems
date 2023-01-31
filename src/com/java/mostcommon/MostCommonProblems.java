@@ -1,5 +1,6 @@
 package com.java.mostcommon;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -147,21 +148,24 @@ public class MostCommonProblems {
 		return countsMap;
 	}
 	
+	
+	/*Fibonacci  series*/
+	public static int[] getFibonacci(int range) {
+		int a = 0;
+		int b = 1;
+		int c = 0;
+		int[] seq = new int[range];
+		for(int i=0; i<range; i++) {
+			c = a + b;
+			b = c;
+			a = b;
+			seq[i] = c;
+		}
+		return seq;
+	}
+	
 	public static void main(String[] args) {
-		
-		
-		Map<Integer, Integer> map = findFrequencyOfDigits(112515);
-		System.out.println(map);
-		
-		//System.out.println(isPerfect(6));
-		
-		/*
-		int num = 153;
-		double sum = requiredSum(num);
-		if(num == sum)
-			System.out.println("Armstrong Number");
-		else
-			System.out.println("Not An Armstrong Number");
-			*/
+		int[] fib = getFibonacci(10);
+		System.out.println(Arrays.toString(fib));
 	}
 }
