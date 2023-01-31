@@ -1,6 +1,7 @@
 package com.java.mostcommon;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MostCommonProblems {
 
@@ -122,10 +123,37 @@ public class MostCommonProblems {
 		return sum == num;
 	}
 	
+	
+	/*Given a number find the frequency of digits in the number*/
+	public static Map findFrequencyOfDigits(int num) {
+		//112575
+		int[] digits = {1,2,3,4,5,6,7,8,9};
+		Map<Integer, Integer> countsMap = new HashMap<>();
+		
+		while(num>0) {
+			int rem = num % 10;
+			for(int i : digits) {
+				if(rem == i) {
+					if(countsMap.containsKey(rem)) {
+						countsMap.put(rem, countsMap.get(rem) + 1);
+					}
+					else{
+						countsMap.put(rem, 1);
+					}
+				}
+			}
+			num = num / 10;
+		}
+		return countsMap;
+	}
+	
 	public static void main(String[] args) {
 		
 		
-		System.out.println(isPerfect(6));
+		Map<Integer, Integer> map = findFrequencyOfDigits(112515);
+		System.out.println(map);
+		
+		//System.out.println(isPerfect(6));
 		
 		/*
 		int num = 153;
