@@ -29,7 +29,11 @@ public class ArrayProblems {
 		return arrNew;
 	}
 	
-	
+	/**
+	 * given a arrays nums1 and num2 of the same length, for every element in nums1, consider
+	 * the corresponding elemnt in nums2(at the same index). Return the count of the number of items
+	 * 
+	 * */
 	
 	public static void main(String[] args) {
 		
