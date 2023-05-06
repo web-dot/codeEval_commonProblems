@@ -190,7 +190,7 @@ public class MostCommonProblems {
 		List<Integer> primes = new ArrayList<>();
 		for (int i = 1; i < num; i++) {
 			if (num % i == 0) {
-				if(checkPrime(i)) {
+				if(isPrime(i)) {
 					primes.add(i);
 				}
 			}
@@ -198,7 +198,7 @@ public class MostCommonProblems {
 		return primes;
 	}
 
-	public static boolean checkPrime(int num) {
+	public static boolean isPrime(int num) {
 		for(int i=2; i<num; i++) {
 			if(num % i == 0) {
 				return false;
@@ -206,8 +206,22 @@ public class MostCommonProblems {
 		}
 		return true;
 	}
+	
+	/**
+	 * two prime numbers within given range
+	 * */
+	public static List<Integer> findPrimes(int n1, int n2){
+		List<Integer> l1 = new ArrayList<>();
+		for(int i=n1; i<n2; i++) {
+			if(isPrime(i)) {
+				l1.add(i);
+			}
+		}
+		return l1;
+	}
+	
 
 	public static void main(String[] args) {
-		System.out.println(primeFactors(27));
+		System.out.println(findPrimes(27, 55));
 	}
 }
