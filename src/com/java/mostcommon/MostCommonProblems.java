@@ -264,6 +264,20 @@ public class MostCommonProblems {
 		}
 		return sum;
 	}
+	
+	// alternate 
+	public static int sumOfNums(int a) {
+		int sum = 0;
+		int num = 0;
+		int i = 1;
+		while(i <= 2) {
+			num = a % 10;
+			sum = sum + num;
+			a = a / 10;
+			i++;
+		}
+		return sum;
+	}
 
 	public static void main(String[] args) {
 		System.out.println(sumOfLast(112915));
