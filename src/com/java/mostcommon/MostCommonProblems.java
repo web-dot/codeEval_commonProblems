@@ -1,6 +1,7 @@
 package com.java.mostcommon;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -208,7 +209,7 @@ public class MostCommonProblems {
 	}
 	
 	/**
-	 * two prime numbers within given range
+	 * prime numbers within given range
 	 * */
 	public static List<Integer> findPrimes(int n1, int n2){
 		List<Integer> l1 = new ArrayList<>();
@@ -220,8 +221,51 @@ public class MostCommonProblems {
 		return l1;
 	}
 	
+	// twin primes between range
+	public static int[] twinPrime(int n1, int n2) {
+		int[] arr = new int[2];
+		for(int i=n1; i<=n2; i++) {
+			boolean g = prime(i);
+			boolean h = prime(i+2);
+			if(g&&h) {
+				arr[0]=i;
+				arr[1]=i+2;
+			}
+		}
+		return arr;
+	}
+	
+	
+	// prime function alternate
+	public static boolean prime(int m) {
+		int count = 0;
+		for(int i=1; i<m; i++) {
+			if(m % i == 0) {
+				count++;
+			}
+		}
+		return count == 2;
+	}
+	
+	/**
+	 * sum of last two digits of a given number
+	 * */
+	public static int sumOfLast(int n) {
+		int count = 0;
+		int sum = 0;
+		while(n > 0) {
+			int rem = n % 10;
+			sum = sum + rem;
+			n = n / 10;
+			count++;
+			if(count == 2) {
+				break;
+			}
+		}
+		return sum;
+	}
 
 	public static void main(String[] args) {
-		System.out.println(findPrimes(27, 55));
+		System.out.println(sumOfLast(112915));
 	}
 }
