@@ -278,8 +278,67 @@ public class MostCommonProblems {
 		}
 		return sum;
 	}
+	
+	// sum of numbers from a given digit
+	public static int sumOfAllNums(int n) {
+		int rem = 0;
+		int sum = 0;
+		while(n > 0) {
+			rem = n % 10;
+			sum = sum + rem;
+			n = n / 10;
+		}
+		return sum;
+	}
+	
+	// sum of prime numbers given within the range
+	public static int sumOfPrimes(int n1, int n2) {
+		int sum = 0;
+		for(int i=n1; i<n2; i++) {
+			int count = 0;
+			for(int j=1; j<=i; j++) {
+				if(i%j==0) {
+					count++;
+				}
+			}
+			if(count == 2) {
+				sum = sum + i;
+			}
+		}
+		return sum;
+	}
+	
+	// prime numbers within the range
+	public static int[] primesInRange(int n1, int n2) {
+		int[] arr = new int[n2-n1];
+		int k = 0;
+		for(int i=n1; i<n2; i++) {
+			int count = 0;
+			for(int j=1; j<=i; j++) {
+				if(i%j==0) {
+					count++;
+				}
+			}
+			if(count == 2) {
+				arr[k] = i;
+				k++;
+			}
+		}
+		return arr;
+	}
+	
+	//Factors of given numbers
+	public static List<Integer> findFactors(int nums){
+		List<Integer> factorsList = new ArrayList<>();
+		for(int i=1; i<nums; i++) {
+			if(nums % i == 0) {
+				factorsList.add(i);
+			}
+		}
+		return factorsList;
+	}
 
 	public static void main(String[] args) {
-		System.out.println(sumOfLast(112915));
+		System.out.println(findFactors(57));
 	}
 }
